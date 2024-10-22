@@ -1,5 +1,7 @@
-@use 'variables';
-@use 'mixins';
-@use 'home';
-@use 'header';
-@use 'footer';
+@import './abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/reset';
+@import 'base/base';
+@import 'pages/home';
+@import 'layout/header';
+@import 'layout/footer';
