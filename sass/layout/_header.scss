@@ -1,9 +1,9 @@
-.navbar {
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 63px;
-    .navbar__title {
+    &__title {
         font-family: $font-title;
         font-style: italic;
         font-size: 30px;

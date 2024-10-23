@@ -40,13 +40,13 @@ body {
   background-color: #EAEAEA;
 }
 
-.navbar {
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 63px;
 }
-.navbar .navbar__title {
+.header__title {
   font-family: "Shrikhand", sans-serif;
   font-style: italic;
   font-size: 30px;

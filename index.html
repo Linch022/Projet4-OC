@@ -12,10 +12,8 @@
 </head>
 <body>
     <div class="main-container">
-        <header>
-            <nav class="navbar">
-                <h1 class="navbar__title">ohmyfood</h1>
-            </nav>
+        <header class="header">
+                <h1 class="header__title">ohmyfood</h1>
         </header>
         <main>
             <section class="headline">
@@ -30,25 +28,27 @@
                 </div>
             </section>
             <section class="steps">
-                <h3>Fonctionnement</h3>
-                <div class="step">
-                    <span class="step__number">1</span>
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <p class="step__text">Choississez un restaurant</p>
-                </div>
-                <div class="step">
-                    <span class="step__number">2</span>
-                    <i class="fa-solid fa-list-ul"></i>
-                    <p class="step__text">Composez votre menu</p>
-                </div>
-                <div class="step">
-                    <span class="step__number">3</span>
-                    <i class="fa-solid fa-store"></i>
-                    <p class="step__text">Dégustez au restaurant</p>
-                </div>
-            </section>
-            <section class="restaurants">
-                <h3 class="">Restaurants</h3>
+                <h2>Fonctionnement</h2>
+                <ol>
+                    <li class="step">
+                        <span class="step__number">1</span>
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <p class="step__text">Choississez un restaurant</p>
+                    </li>
+                    <li class="step">
+                        <span class="step__number">2</span>
+                        <i class="fa-solid fa-list-ul"></i>
+                        <p class="step__text">Composez votre menu</p>
+                    </li>
+                    <li class="step">
+                        <span class="step__number">3</span>
+                        <i class="fa-solid fa-store"></i>
+                        <p class="step__text">Dégustez au restaurant</p>
+                    </li>
+                </ol>
+                </section>
+                <section class="restaurants">
+                <h2 class="">Restaurants</h2>
                 <div class="cards-container">
                     <a href="#">
                         <article class="card">
@@ -102,7 +102,7 @@
             </section>
         </main>
         <footer>
-            <h3>ohmyfood</h3>
+            <p>ohmyfood</p>
             <ul>
                 <li><i class="fa-solid fa-utensils"></i>Proposer un restaurant</li>
                 <li><i class="fa-solid fa-handshake-angle"></i>Devenir partenaire</li>
