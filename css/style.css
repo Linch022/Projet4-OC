@@ -19,10 +19,37 @@ body {
 }
 
 .headline {
+  margin: 40px 0;
+}
+.headline__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+.headline__content__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.headline__content__text {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.headline__content__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  background: linear-gradient(180deg, #FF79DA -11.44%, #9356DC 123.93%);
+  color: #FFFFFF;
+  padding: 0 25px;
 }
 
 .header {
