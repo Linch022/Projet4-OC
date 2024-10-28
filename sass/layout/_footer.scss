@@ -1,0 +1,35 @@
+.footer {
+    background-color: $grey;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 25px;
+    gap: 16px;
+
+    &__title {
+        font-family: $font-title;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    &__icon {
+        width: 17px;
+        margin-right: 8px;
+        font-size: 13px;
+
+        &--little {
+            font-size: 11px;
+            width: 17px;
+            margin-right: 8px;
+        }
+    }
+}
