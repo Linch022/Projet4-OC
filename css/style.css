@@ -18,8 +18,17 @@ body {
   color: #000000;
 }
 
+.like {
+  font-size: 21px;
+}
+
 .main-container {
   background-color: #F6F6F6;
+}
+
+.section__title {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .headline {
@@ -33,8 +42,6 @@ body {
   text-align: center;
 }
 .headline__content__title {
-  font-size: 24px;
-  font-weight: 700;
   margin-bottom: 15px;
 }
 .headline__content__text {
@@ -105,6 +112,39 @@ body {
 .steps__item__text {
   font-weight: 600;
   font-size: 16px;
+}
+
+.restaurants {
+  padding: 60px 15px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card {
+  border-radius: 15px;
+  background-color: #FFFFFF;
+}
+.card__image {
+  object-fit: cover;
+  height: 230px;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.card__content {
+  padding: 15px 25px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.card__text__title {
+  font-size: 18px;
+}
+.card__text__description {
+  font-size: 17px;
 }
 
 .header {

@@ -1,6 +1,12 @@
 .main-container {
     background-color: $light-grey;
 }
+
+.section__title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
 .headline {
     margin: 40px 0;
     &__content {
@@ -11,8 +17,6 @@
         text-align: center;
 
         &__title {
-            font-size: 24px;
-            font-weight: 700;
             margin-bottom: 15px;
         }
 
@@ -91,6 +95,46 @@
             &__text {
                 font-weight: 600;
                 font-size: 16px;
+            }
+        }
+    }
+
+    .restaurants {
+        padding: 60px 15px;
+    }
+
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .card {
+        border-radius: 15px;
+        background-color: $white;
+
+        &__image {
+            object-fit: cover;
+            height: 230px;
+            width: 100%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        &__content {
+            padding: 15px 25px 15px 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__text {
+            
+            &__title {
+                font-size: 18px;
+            }
+
+            &__description {
+                font-size: 17px;
             }
         }
     }
