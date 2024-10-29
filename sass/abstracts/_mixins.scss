@@ -1,0 +1,7 @@
+@mixin device($breakpoint) {
+    @if $breakpoint == tablet {
+        @media (min-width: #{$tablet}) { @content;}
+    } @else if $breakpoint == laptop {
+        @media (min-width: #{$laptop}) { @content;}
+    }
+}
