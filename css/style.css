@@ -146,6 +146,9 @@ body {
   margin: 0 auto;
   max-width: 380px;
 }
+.restaurants .section__title {
+  margin-bottom: 28px;
+}
 @media (min-width: 767px) {
   .restaurants {
     max-width: 760px;
@@ -177,6 +180,7 @@ body {
 }
 
 .card {
+  position: relative;
   border-radius: 15px;
   background-color: #FFFFFF;
 }
@@ -202,6 +206,23 @@ body {
 }
 .card__text__description {
   font-size: 17px;
+}
+
+.new-label {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  right: 20px;
+  height: 29px;
+  width: 80px;
+  border-radius: 2px;
+  background-color: #99E2D0;
+  color: #008766;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1490196078);
 }
 
 .header {
