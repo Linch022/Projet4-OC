@@ -3,5 +3,7 @@
         @media (min-width: #{$tablet}) { @content;}
     } @else if $breakpoint == laptop {
         @media (min-width: #{$laptop}) { @content;}
+    } @else if $breakpoint == xl-laptop {
+        @media (min-width: #{$xl-laptop}) { @content;}
     }
 }

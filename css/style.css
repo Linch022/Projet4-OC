@@ -16,14 +16,11 @@ ul, ol {
 body {
   font-family: "Roboto", sans-serif;
   color: #000000;
+  background-color: #F6F6F6;
 }
 
 .like {
   font-size: 21px;
-}
-
-.main-container {
-  background-color: #F6F6F6;
 }
 
 .section__title {
@@ -63,17 +60,42 @@ body {
   padding: 0 25px;
 }
 
+.steps-section {
+  background-color: #FFFFFF;
+}
+
 .steps {
   display: flex;
   flex-direction: column;
   padding: 50px 20px 80px 20px;
   gap: 20px;
-  background-color: #FFFFFF;
+  margin: 0 auto;
+  max-width: 380px;
+}
+@media (min-width: 767px) {
+  .steps {
+    max-width: 760px;
+  }
+}
+@media (min-width: 1023px) {
+  .steps {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1439px) {
+  .steps {
+    max-width: 1400px;
+  }
 }
 .steps__container {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+@media (min-width: 767px) {
+  .steps__container {
+    flex-direction: row;
+  }
 }
 .steps__item {
   position: relative;
@@ -86,6 +108,11 @@ body {
   border-radius: 20px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
   padding-left: 40px;
+}
+@media (min-width: 767px) {
+  .steps__item {
+    width: 100%;
+  }
 }
 .steps__item__number {
   position: absolute;
@@ -116,6 +143,24 @@ body {
 
 .restaurants {
   padding: 60px 15px;
+  margin: 0 auto;
+  max-width: 380px;
+}
+@media (min-width: 767px) {
+  .restaurants {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1023px) {
+  .restaurants {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1439px) {
+  .restaurants {
+    max-width: 1400px;
+  }
 }
 
 .cards-container {
@@ -123,14 +168,26 @@ body {
   flex-direction: column;
   gap: 18px;
 }
+@media (min-width: 767px) {
+  .cards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
 
 .card {
   border-radius: 15px;
   background-color: #FFFFFF;
 }
+@media (min-width: 767px) {
+  .card {
+    width: 45%;
+  }
+}
 .card__image {
   object-fit: cover;
-  height: 230px;
+  height: 170px;
   width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -198,6 +255,13 @@ body {
   padding: 22px 25px;
   gap: 16px;
 }
+@media (min-width: 767px) {
+  .footer {
+    height: 114px;
+    flex-direction: row-reverse;
+    align-items: end;
+  }
+}
 .footer__title {
   font-family: "Shrikhand", sans-serif;
   font-size: 18px;
@@ -210,6 +274,17 @@ body {
   gap: 8px;
   font-size: 16px;
   font-weight: 500;
+}
+@media (min-width: 767px) {
+  .footer__links {
+    flex-direction: row;
+  }
+  .footer__links__item:nth-child(-n+2) {
+    width: 190px;
+  }
+  .footer__links__item:nth-child(n+3):nth-child(-n+4) {
+    width: 130px;
+  }
 }
 .footer__icon {
   width: 17px;

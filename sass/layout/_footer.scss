@@ -6,6 +6,12 @@
     padding: 22px 25px;
     gap: 16px;
 
+    @include device(tablet) {
+        height: 114px;
+        flex-direction: row-reverse;
+        align-items: end;
+    }
+
     &__title {
         font-family: $font-title;
         font-size: 18px;
@@ -19,6 +25,20 @@
         gap: 8px;
         font-size: 16px;
         font-weight: 500;
+
+        @include device(tablet) {
+            flex-direction: row;
+
+            &__item {
+                &:nth-child(-n+2) {
+                    width: 190px;
+                }
+
+                &:nth-child(n+3):nth-child(-n+4) {
+                    width: 130px;
+                }
+            }
+        }
     }
 
     &__icon {
