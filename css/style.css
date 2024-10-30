@@ -54,10 +54,15 @@ body {
   font-size: 16px;
   border: none;
   border-radius: 25px;
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.3), 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
   background: linear-gradient(180deg, #FF79DA -11.44%, #9356DC 123.93%);
   color: #FFFFFF;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease-in-out;
   padding: 0 25px;
+}
+.headline__content__button:hover {
+  box-shadow: inset 0px 4px 20px 10px rgba(255, 255, 255, 0.3), 0px 4px 10px 3px rgba(0, 0, 0, 0.2509803922);
 }
 
 .steps-section {
