@@ -24,7 +24,12 @@
         flex-direction: column;
         gap: 8px;
         font-size: 16px;
-        font-weight: 500;
+        &__item {
+
+            &:nth-child(-n+2) {
+                font-weight: 500;
+            }
+        }
 
         @include device(tablet) {
             flex-direction: row;
