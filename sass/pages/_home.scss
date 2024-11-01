@@ -6,20 +6,32 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        padding: 0 40px;
+        margin: 0 auto;
+        max-width: 380px;
 
-        &__title {
-            margin-bottom: 15px;
+        @include device(tablet) {
+            max-width: 760px;
         }
 
-        &__text {
-            font-size: 18px;
-            margin-bottom: 30px;
+        @include device(laptop) {
+            max-width: 1024px;
         }
 
-        &__button {
-            @include button-style;
-            padding: 0 25px;
-        }
+    }
+    
+    &__content-title {
+        margin-bottom: 16px;
+    }
+
+    &__content-text {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    &__content-button {
+        @include button-style;
+        width: 218px;
     }
     }
 
@@ -73,35 +85,36 @@
             width: 100%;            }
 
 
-            &__number {
-                position: absolute;
-                top: 28px;
-                left: -12px;
-                width: 24px;
-                height: 24px;
-                background-color: $primary-color;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: $white;
-                border-radius: 100%;
-                font-size: 14px;
-            }
+        }
 
-            &__icon {
-                color: #7E7E7E;
+        &__item-number {
+            position: absolute;
+            top: 28px;
+            left: -12px;
+            width: 24px;
+            height: 24px;
+            background-color: $primary-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            border-radius: 100%;
+            font-size: 14px;
+        }
+
+        &__item-icon {
+            color: #7E7E7E;
+            font-size: 20px;
+
+            &--active {
+                color: $primary-color;
                 font-size: 20px;
-
-                &--purple {
-                    color: $primary-color;
-                    font-size: 20px;
-                }
             }
+        }
 
-            &__text {
-                font-weight: 600;
-                font-size: 16px;
-            }
+        &__item-text {
+            font-weight: 500;
+            font-size: 16px;
         }
     }
 
@@ -164,16 +177,13 @@
             justify-content: space-between;
         }
 
-        &__text {
-            
-            &__title {
-                font-size: 18px;
-            }
+        &__text-title {
+            font-size: 18px;
+        }
 
-            &__description {
-                font-size: 17px;
-                font-weight: 300;
-            }
+        &__text-description {
+            font-size: 17px;
+            font-weight: 300;
         }
     }
 

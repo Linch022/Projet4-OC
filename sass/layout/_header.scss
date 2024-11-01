@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     &__title {
         display: flex;
         justify-content: center;
@@ -15,6 +16,7 @@
         box-shadow: 0px 2px 4px 0px #00000026;
         z-index: 2;
     }
+
     &__form {
         z-index: 1;
         display: flex;
@@ -24,13 +26,16 @@
         background-color: #EAEAEA;
         box-shadow: 0px 4px 4px 0px #00000040;
         
-        &__icon {
+    }
+
+    &__form-icon {
             color: $grey;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        &__input {
+
+    &__form-input {
             width: 150px;
             color: $grey;
             border: none;
@@ -45,5 +50,4 @@
                 font-weight: 500;
             }
         }
-}
 }
