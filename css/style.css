@@ -32,7 +32,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 40px;
   margin: 0 auto;
   max-width: 380px;
 }
@@ -56,7 +55,7 @@ body {
 }
 .headline__content-text {
   font-size: 1.125rem;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 .headline__content-button {
   display: flex;
@@ -85,30 +84,30 @@ body {
 .steps {
   display: flex;
   flex-direction: column;
-  padding: 50px 20px 80px 20px;
-  gap: 20px;
+  padding: 56px 0;
+  gap: 16px;
   margin: 0 auto;
   max-width: 380px;
 }
 @media (min-width: 767px) {
   .steps {
-    max-width: 760px;
+    max-width: 80vw;
   }
 }
 @media (min-width: 1023px) {
   .steps {
-    max-width: 1024px;
+    max-width: 80vw;
   }
 }
 @media (min-width: 1439px) {
   .steps {
-    max-width: 1400px;
+    max-width: 80vw;
   }
 }
 .steps__container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
 }
 @media (min-width: 767px) {
   .steps__container {
@@ -120,7 +119,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 30px;
+  gap: 32px;
   background-color: #F6F6F6;
   height: 72px;
   border-radius: 20px;
@@ -158,34 +157,34 @@ body {
 }
 
 .restaurants {
-  padding: 60px 15px;
+  padding: 56px 0;
   margin: 0 auto;
   max-width: 380px;
 }
 .restaurants .section__title {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 @media (min-width: 767px) {
   .restaurants {
-    max-width: 760px;
+    max-width: 80vw;
     margin: 0 auto;
   }
 }
 @media (min-width: 1023px) {
   .restaurants {
-    max-width: 1024px;
+    max-width: 80vw;
   }
 }
 @media (min-width: 1439px) {
   .restaurants {
-    max-width: 1400px;
+    max-width: 80vw;
   }
 }
 
 .cards-container {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 40px;
 }
 @media (min-width: 767px) {
   .cards-container {
@@ -213,7 +212,8 @@ body {
   border-top-right-radius: 15px;
 }
 .card__content {
-  padding: 15px 25px 15px 15px;
+  padding: 16px;
+  padding-right: 24px;
   display: flex;
   justify-content: space-between;
 }
@@ -295,7 +295,7 @@ body {
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  padding: 22px 25px;
+  padding: 24px;
   gap: 16px;
 }
 @media (min-width: 767px) {
@@ -309,7 +309,6 @@ body {
   font-family: "Shrikhand", sans-serif;
   font-size: 1.125rem;
   font-style: italic;
-  font-weight: 400;
 }
 .footer__links {
   display: flex;
@@ -329,7 +328,7 @@ body {
     margin-right: 40px;
   }
   .footer__links-item:nth-child(odd) {
-    margin-right: 10px;
+    margin-right: 8px;
   }
 }
 .footer__links-icon {
