@@ -30,12 +30,12 @@
             flex-direction: row;
 
             &__item {
-                &:nth-child(-n+2) {
-                    width: 190px;
+                &:nth-child(even) {
+                    margin-right: 40px;
                 }
 
-                &:nth-child(n+3):nth-child(-n+4) {
-                    width: 130px;
+                &:nth-child(odd){
+                    margin-right: 10px;
                 }
             }
         }
@@ -45,11 +45,5 @@
         width: 17px;
         margin-right: 8px;
         font-size: 13px;
-
-        &--little {
-            font-size: 11px;
-            width: 17px;
-            margin-right: 8px;
-        }
     }
 }

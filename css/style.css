@@ -306,22 +306,17 @@ body {
   .footer__links {
     flex-direction: row;
   }
-  .footer__links__item:nth-child(-n+2) {
-    width: 190px;
+  .footer__links__item:nth-child(even) {
+    margin-right: 40px;
   }
-  .footer__links__item:nth-child(n+3):nth-child(-n+4) {
-    width: 130px;
+  .footer__links__item:nth-child(odd) {
+    margin-right: 10px;
   }
 }
 .footer__icon {
   width: 17px;
   margin-right: 8px;
   font-size: 13px;
-}
-.footer__icon--little {
-  font-size: 11px;
-  width: 17px;
-  margin-right: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */
