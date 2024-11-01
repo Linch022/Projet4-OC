@@ -22,10 +22,14 @@
     
     &__content-title {
         margin-bottom: 16px;
+
+        @include device(laptop) {
+            font-size: $x-large-font;
+        }
     }
 
     &__content-text {
-        font-size: 18px;
+        font-size: $medium-font;
         margin-bottom: 30px;
     }
 
@@ -99,22 +103,20 @@
             justify-content: center;
             color: $white;
             border-radius: 100%;
-            font-size: 14px;
+            font-size: $small-font;
         }
 
         &__item-icon {
             color: #7E7E7E;
-            font-size: 20px;
+            font-size: $large-font;
 
             &--active {
                 color: $primary-color;
-                font-size: 20px;
             }
         }
 
         &__item-text {
             font-weight: 500;
-            font-size: 16px;
         }
     }
 
@@ -178,11 +180,12 @@
         }
 
         &__text-title {
-            font-size: 18px;
+            font-size: $medium-font;
         }
 
         &__text-description {
-            font-size: 17px;
+            font-size: 1.063rem;
+            // Pertinence de mettre ce chiffre ? 1 serais ok ?
             font-weight: 300;
         }
     }
@@ -199,7 +202,7 @@
         border-radius: 2px;
         background-color: $third-color;
         color: $third-color-font;
-        font-size: 14px;
+        font-size: $small-font;
         font-weight: 500;
         box-shadow: 0px 2px 4px 0px #00000026;
     }

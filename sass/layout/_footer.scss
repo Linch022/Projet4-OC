@@ -14,7 +14,7 @@
 
     &__title {
         font-family: $font-title;
-        font-size: 18px;
+        font-size: $medium-font;
         font-style: italic;
         font-weight: 400;
     }
@@ -23,7 +23,6 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
-        font-size: 16px;
 
         @include device(tablet) {
             flex-direction: row;
@@ -50,6 +49,6 @@
     &__links-icon {
         width: 17px;
         margin-right: 8px;
-        font-size: 13px;
+        font-size: $small-font;
     }
 }

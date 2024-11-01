@@ -49,8 +49,13 @@ body {
 .headline__content-title {
   margin-bottom: 16px;
 }
+@media (min-width: 1023px) {
+  .headline__content-title {
+    font-size: 2.5rem;
+  }
+}
 .headline__content-text {
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 30px;
 }
 .headline__content-button {
@@ -139,19 +144,17 @@ body {
   justify-content: center;
   color: #FFFFFF;
   border-radius: 100%;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .steps__item-icon {
   color: #7E7E7E;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .steps__item-icon--active {
   color: #9356DC;
-  font-size: 20px;
 }
 .steps__item-text {
   font-weight: 500;
-  font-size: 16px;
 }
 
 .restaurants {
@@ -215,10 +218,10 @@ body {
   justify-content: space-between;
 }
 .card__text-title {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .card__text-description {
-  font-size: 17px;
+  font-size: 1.063rem;
   font-weight: 300;
 }
 
@@ -234,7 +237,7 @@ body {
   border-radius: 2px;
   background-color: #99E2D0;
   color: #008766;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1490196078);
 }
@@ -304,7 +307,7 @@ body {
 }
 .footer__title {
   font-family: "Shrikhand", sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: italic;
   font-weight: 400;
 }
@@ -312,7 +315,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 16px;
 }
 @media (min-width: 767px) {
   .footer__links {
@@ -333,7 +335,7 @@ body {
 .footer__links-icon {
   width: 17px;
   margin-right: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
 }
 
 /*# sourceMappingURL=style.css.map */
