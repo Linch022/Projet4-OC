@@ -198,6 +198,7 @@ body {
   position: relative;
   border-radius: 15px;
   background-color: #FFFFFF;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
 }
 @media (min-width: 767px) {
   .card {
