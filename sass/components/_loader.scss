@@ -11,7 +11,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate($translate-center, $translate-center);
         height: 290px;
         width: 290px;
         display: flex;
@@ -24,8 +24,8 @@
         }
 
         &::after {
-            @include loader-ball-style(true);
             transform: translate(120px, 10px) rotate(355deg);
+            @include loader-ball-style(true);
         }
 
         
@@ -36,7 +36,7 @@
         overflow: hidden;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate($translate-center, $translate-center);
         width: 320px;
         height: 320px;
         border-radius: 50%;
@@ -48,7 +48,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -150%);
+            transform: translate($translate-center, -150%);
             width: 320px;
             height: 320px;
             background: $purple-gradient;
@@ -65,46 +65,33 @@
         content: "";
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate($translate-center, $translate-center);
         height: 38px;
         width: 196px;
         background: $light-grey;
         box-shadow: inset -9px 0px 8px 0px #F6F6F6;
         transform-origin: right;
         @include visible-scale('visible-logo');
-        animation: visible-logo 1s 1s ease-in-out forwards;
     }
 }
 
   @keyframes circle-filling-anim {
     15% {
-        transform: translate(-50%, -150%);
+        transform: translate($translate-center, -150%);
     }
-    25% {
-        transform: translate(-50%, -130%);
+    25%, 35% {
+        transform: translate($translate-center, -130%);
     }
-    35% {
-        transform: translate(-50%, -130%);
+    45%, 55% {
+        transform: translate($translate-center, -110%);
     }
-    45% {
-        transform: translate(-50%, -110%);
+    65%, 75% {
+        transform: translate($translate-center, -80%);
     }
-    55% {
-        transform: translate(-50%, -110%);
-    }
-    65% {
-        transform: translate(-50%, -80%);
-    }
-    75% {
-        transform: translate(-50%, -80%);
-    }
-    85% {
-        transform: translate(-50%, -63%);
-    }
-    95% {
-        transform: translate(-50%, -63%);
+    85%, 95% {
+        transform: translate($translate-center, -65%);
     }
     100% {
-        transform: translate(-50%, -50%);
+        transform: translate($translate-center, $translate-center);
     }
   }

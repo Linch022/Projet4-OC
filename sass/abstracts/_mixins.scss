@@ -45,10 +45,8 @@
     @include visible-opacity('visible-ball');
     @if $reverse{
         @include spin-ball-anim('spin-reverse', true) ;
-        animation: visible-ball 0.3s 1.9s forwards, spin-reverse 6s 2.2s forwards;
     } @else  {
         @include spin-ball-anim('spin', false);
-        animation: visible-ball 0.3s 1.9s forwards, spin 6s 2.2s forwards;
     }
 }
 
@@ -63,14 +61,18 @@
 }
 
 @mixin visible-scale($name) {
+
     @keyframes #{$name} {
         from {
-         transform: translate($translate-center, $translate-center) scaleX(1);
+            transform: translate($translate-center, $translate-center) scaleX(1);
         } 
         to {
-         transform: translate($translate-center, $translate-center) scaleX(0);
+            transform: translate($translate-center, $translate-center) scaleX(0);
         }
-     }
+    }
+    & {
+        animation: $name 1s 1s ease-in-out forwards;
+    }
 }
 
 //Animation pour les balles
@@ -81,29 +83,38 @@ $start-rotate: if($reverse,  220deg, 305deg);
 $increment: 35deg;
 $rotation: 0deg;
 
-    @keyframes #{$name} {
-        0% {
-            transform: translate($translate-ball) rotate($start);
+@keyframes #{$name} {
+    0% {
+        transform: translate($translate-ball) rotate($start);
+    }
+    
+    @for $i from 0 through 3 {
+        $percentage: if($i == 0, 10, $i * 20 + 10);
+        @if $reverse {
+            $rotation : $start-rotate - ($i * $increment),
+            
+        } @else {
+            $rotation : $start-rotate + ($i * $increment);
+            
         }
-
-        @for $i from 0 through 3 {
-            $percentage: if($i == 0, 10, $i * 20 + 10);
-            @if $reverse {
-                $rotation : $start-rotate - ($i * $increment),
-
-            } @else {
-                $rotation : $start-rotate + ($i * $increment);
-
-            }
-            #{$percentage + 0%} {
-                transform: translate($translate-ball) rotate($rotation);
-            }
-            #{$percentage + 10%} {
-                transform: translate($translate-ball) rotate($rotation);
-            }
+        #{$percentage + 0%} {
+            transform: translate($translate-ball) rotate($rotation);
         }
-        100% {
-            transform: translate($translate-ball) rotate($end);
+        #{$percentage + 10%} {
+            transform: translate($translate-ball) rotate($rotation);
         }
     }
+    100% {
+        transform: translate($translate-ball) rotate($end);
+    }
+}
+
+& {
+
+    @if $reverse {
+        animation: visible-ball 0.3s 1.9s forwards, spin-reverse 6s 2.2s forwards;
+    } @else {
+        animation: visible-ball 0.3s 1.9s forwards, spin 6s 2.2s forwards;
+    }
+}   
 }
