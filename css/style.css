@@ -63,13 +63,16 @@ body {
   content: "";
   top: 50%;
   left: 50%;
-  transform: translate(120px, 10px) rotate(355deg);
+  transform: translate(120px, 10px) rotate(170deg);
   opacity: 0;
   background: linear-gradient(90deg, rgba(255, 121, 218, 0.3477766106) 4%, rgba(255, 121, 218, 0.6923144258) 15%, rgba(207, 106, 219, 0.8799894958) 45%, rgba(161, 110, 222, 0.8827906162) 86%, rgba(147, 86, 220, 0.8603816527) 97%);
   width: 20px;
   height: 20px;
   border-radius: 50%;
   transform-origin: -120px -10px;
+  animation: visible-ball 0.3s 1.9s forwards, spin 6s 2.2s ease-in-out forwards;
+  background: linear-gradient(90deg, rgba(255, 121, 218, 0.3477766106) 4%, rgba(255, 121, 218, 0.6923144258) 15%, rgba(207, 106, 219, 0.8799894958) 45%, rgba(161, 110, 222, 0.8827906162) 86%, rgba(147, 86, 220, 0.8603816527) 97%);
+  transform: translate(120px, 10px) rotate(355deg);
   animation: visible-ball 0.3s 1.9s forwards, spin-reverse 6s 2.2s ease-in-out forwards;
 }
 .loader-container__circle {
