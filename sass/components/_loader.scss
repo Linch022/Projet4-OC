@@ -20,14 +20,12 @@
         border-radius: 50%;
 
         &::before {
-            @include loader-ball-style;
+            @include loader-ball-style(false);
         }
 
         &::after {
-            @include loader-ball-style;
-            background: linear-gradient(90deg, rgba(255,121,218,0.3477766106442577) 4%, rgba(255,121,218,0.6923144257703081) 15%, rgba(207,106,219,0.8799894957983193) 45%, rgba(161,110,222,0.8827906162464986) 86%, rgba(147,86,220,0.8603816526610644) 97%);
+            @include loader-ball-style(true);
             transform: translate(120px, 10px) rotate(355deg);
-            animation: visible-ball 0.3s 1.9s forwards, spin-reverse 6s 2.2s ease-in-out forwards;
         }
 
         
@@ -44,7 +42,7 @@
         border-radius: 50%;
         background: $grey;
         opacity: 70%;
-        
+
         &::after {
             content: "";
             position: absolute;
@@ -77,87 +75,16 @@
     }
 }
 
-@keyframes visible-ball {
-    to {
-        opacity: 1;
-    }
-}
-
 @keyframes logo-loader-anim {
     
    from {
-    transform: translateX(-50%, -50%) scaleX(1);
+    transform: translate(-50%, -50%) scaleX(1);
    } 
    to {
     transform: translate(-50%, -50%) scaleX(0);
    }
 }
 
-@keyframes spin {
-    0% {
-      transform: translate(120px, 10px) rotate(170deg);
-    }
-    15% {
-        transform: translate(120px, 10px) rotate(305deg);
-    }
-    25% {
-        transform: translate(120px, 10px) rotate(305deg);
-    }
-    35% {
-        transform: translate(120px, 10px) rotate(340deg);
-    }
-    45% {
-        transform: translate(120px, 10px) rotate(340deg);
-    }
-    55% {
-        transform: translate(120px, 10px) rotate(375deg);
-    }
-    65% {
-        transform: translate(120px, 10px) rotate(375deg);
-    }
-    75% {
-        transform: translate(120px, 10px) rotate(410deg);
-    }
-    85% {
-        transform: translate(120px, 10px) rotate(410deg);
-    }
-    100%{
-      transform: translate(120px, 10px) rotate(440deg);
-    }
-  }
-
-@keyframes spin-reverse {
-    0% {
-      transform: translate(120px, 10px) rotate(355deg);
-    }
-    15% {
-        transform: translate(120px, 10px) rotate(220deg);
-    }
-    25% {
-        transform: translate(120px, 10px) rotate(220deg);
-    }
-    35% {
-        transform: translate(120px, 10px) rotate(185deg);
-    }
-    45% {
-        transform: translate(120px, 10px) rotate(185deg);
-    }
-    55% {
-        transform: translate(120px, 10px) rotate(150deg);
-    }
-    65% {
-        transform: translate(120px, 10px) rotate(150deg);
-    }
-    75% {
-        transform: translate(120px, 10px) rotate(115deg);
-    }
-    85% {
-        transform: translate(120px, 10px) rotate(115deg);
-    }
-    100%{
-      transform: translate(120px, 10px) rotate(80deg);
-    }
-  }
 
   @keyframes circle-filling-anim {
     15% {
