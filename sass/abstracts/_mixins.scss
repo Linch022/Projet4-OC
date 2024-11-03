@@ -1,3 +1,4 @@
+// Mixins pour les breakpoints
 @mixin device($breakpoint) {
     @if $breakpoint == tablet {
         @media (min-width: #{$tablet}) { @content;}
@@ -7,7 +8,7 @@
         @media (min-width: #{$xl-laptop}) { @content;}
     }
 }
-
+// Mixin des boutons
 @mixin button-style {
     display: flex;
     justify-content: center;
@@ -28,6 +29,7 @@
     }
 }
 
+//Mixin pour le style de la balle
 @mixin loader-ball-style($reverse: false) {
     position: absolute;
     content: "";
@@ -40,7 +42,7 @@
     height: 20px;
     border-radius: 50%;
     transform-origin: -120px -10px;
-    @include visible('visible-ball');
+    @include visible-opacity('visible-ball');
     @if $reverse{
         @include spin-ball-anim('spin-reverse', true) ;
         animation: visible-ball 0.3s 1.9s forwards, spin-reverse 6s 2.2s forwards;
@@ -50,7 +52,8 @@
     }
 }
 
-@mixin visible($name) {
+// Animation d'apparition
+@mixin visible-opacity($name) {
 
     @keyframes #{$name} {
         to {
@@ -59,6 +62,18 @@
     }
 }
 
+@mixin visible-scale($name) {
+    @keyframes #{$name} {
+        from {
+         transform: translate($translate-center, $translate-center) scaleX(1);
+        } 
+        to {
+         transform: translate($translate-center, $translate-center) scaleX(0);
+        }
+     }
+}
+
+//Animation pour les balles
 @mixin spin-ball-anim($name, $reverse : false) {
 $start: if($reverse, 355deg, 170deg );
 $end: if($reverse, 80deg, 440deg,);
@@ -80,7 +95,6 @@ $rotation: 0deg;
                 $rotation : $start-rotate + ($i * $increment);
 
             }
-
             #{$percentage + 0%} {
                 transform: translate($translate-ball) rotate($rotation);
             }

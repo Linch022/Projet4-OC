@@ -182,10 +182,9 @@ body {
   background: #F6F6F6;
   box-shadow: inset -9px 0px 8px 0px #F6F6F6;
   transform-origin: right;
-  animation: logo-loader-anim 1s 1s ease-in-out forwards;
+  animation: visible-logo 1s 1s ease-in-out forwards;
 }
-
-@keyframes logo-loader-anim {
+@keyframes visible-logo {
   from {
     transform: translate(-50%, -50%) scaleX(1);
   }
@@ -193,6 +192,7 @@ body {
     transform: translate(-50%, -50%) scaleX(0);
   }
 }
+
 @keyframes circle-filling-anim {
   15% {
     transform: translate(-50%, -150%);

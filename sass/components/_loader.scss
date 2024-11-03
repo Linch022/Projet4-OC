@@ -71,20 +71,10 @@
         background: $light-grey;
         box-shadow: inset -9px 0px 8px 0px #F6F6F6;
         transform-origin: right;
-        animation: logo-loader-anim 1s 1s ease-in-out forwards;
+        @include visible-scale('visible-logo');
+        animation: visible-logo 1s 1s ease-in-out forwards;
     }
 }
-
-@keyframes logo-loader-anim {
-    
-   from {
-    transform: translate(-50%, -50%) scaleX(1);
-   } 
-   to {
-    transform: translate(-50%, -50%) scaleX(0);
-   }
-}
-
 
   @keyframes circle-filling-anim {
     15% {
