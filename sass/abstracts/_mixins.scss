@@ -30,62 +30,98 @@
 }
 
 //Mixin pour le style de la balle
-@mixin loader-ball-style($reverse: false) {
+@mixin loader-ball-style($reverse, $circle-size, $ball-size) {
     position: absolute;
     content: "";
     top: 50%;
     left: 50%;
-    transform: translate(120px, 10px) rotate(170deg);
+    transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate(170deg);
+    transform-origin: -(calc($circle-size / 2 - $ball-size - 5px)) 0px;
     opacity: 0;
     background: $purple-gradient;
-    width: 20px;
-    height: 20px;
+    width: $ball-size;
+    height: $ball-size;
     border-radius: 50%;
-    transform-origin: -120px -10px;
-    @include visible-opacity('visible-ball');
+
     @if $reverse{
-        @include spin-ball-anim('spin-reverse', true) ;
+        @include apply-ball-animations(
+            forwards, $circle-size, $ball-size, false,
+            spin-reverse, true, 360deg, 220deg, 85deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
+            visible-ball, 0.3s, 2s, ease-in-out, false,
+            hide-ball, 0.3s, 8s, ease-in-out, true
+            ) ;
     } @else  {
-        @include spin-ball-anim('spin', false);
+        @include apply-ball-animations(
+            forwards, $circle-size, $ball-size, false,
+            spin, false, 170deg, 310deg, 445deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
+            visible-ball, 0.3s, 2s, ease-in-out, false,
+            hide-ball, 0.3s, 8s, ease-in-out, true
+            ) ;
     }
+
 }
 
 // Animation d'apparition
-@mixin visible-opacity($name) {
+@mixin visible-opacity($name, $duration, $delay, $timing, $fill-mode, $visible, $play-animation) {
 
-    @keyframes #{$name} {
-        to {
-            opacity: 1;
+    @if $visible {
+        @keyframes #{$name} {
+            to {
+                opacity: 0;
+            }
+        }
+    } @else {
+        @keyframes #{$name} {
+            to {
+                opacity: 1;
+            }
+        }
+    }
+    @if $play-animation {
+        & {
+            animation: $name $duration $delay $timing $fill-mode;
         }
     }
 }
 
-@mixin visible-scale($name) {
+@mixin visible-scale($name, $duration, $delay, $timing, $fill-mode, $visible, $scale-type, $play-animation) {
 
-    @keyframes #{$name} {
-        from {
-            transform: translate($translate-center, $translate-center) scaleX(1);
-        } 
-        to {
-            transform: translate($translate-center, $translate-center) scaleX(0);
+    @if $visible {
+        @keyframes #{$name} {
+            from {
+                transform: translate(-50%, -50%) #{$scale-type}(1);
+            } 
+            to {
+                transform: translate(-50%, -50%) #{$scale-type}(0);
+            }
+        }
+    } @else {
+        @keyframes #{$name} {
+            from {
+                transform: translate(-50%, -50%) #{$scale-type}(0);
+            } 
+            to {
+                transform: translate(-50%, -50%) #{$scale-type}(1);
+            }      
         }
     }
-    & {
-        animation: $name 1s 1s ease-in-out forwards;
+    @if $play-animation {
+        & {
+            animation: $name $duration $delay $timing $fill-mode;
+        }
     }
 }
 
 //Animation pour les balles
-@mixin spin-ball-anim($name, $reverse : false) {
-$start: if($reverse, 355deg, 170deg );
-$end: if($reverse, 80deg, 440deg,);
-$start-rotate: if($reverse,  220deg, 305deg);
-$increment: 35deg;
+@mixin spin-ball-anim($name, $reverse, $start, $start-rotate, $end, $increment, $circle-size, $ball-size) {
 $rotation: 0deg;
 
 @keyframes #{$name} {
     0% {
-        transform: translate($translate-ball) rotate($start);
+        transform: translate(calc($circle-size / 2 - $ball-size - 5px)) rotate($start);
+        @include device(tablet) {
+            transform: translate(calc($circle-size / 2 - $ball-size - 5px)) rotate($start);
+        }
     }
     
     @for $i from 0 through 3 {
@@ -98,23 +134,49 @@ $rotation: 0deg;
             
         }
         #{$percentage + 0%} {
-            transform: translate($translate-ball) rotate($rotation);
+            transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($rotation);
         }
         #{$percentage + 10%} {
-            transform: translate($translate-ball) rotate($rotation);
+            transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($rotation);
         }
     }
     100% {
-        transform: translate($translate-ball) rotate($end);
+        transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($end);
+        @include device(tablet) {
+            transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($end);
+        }
     }
 }
+}
 
-& {
 
-    @if $reverse {
-        animation: visible-ball 0.3s 1.9s forwards, spin-reverse 6s 2.2s forwards;
-    } @else {
-        animation: visible-ball 0.3s 1.9s forwards, spin 6s 2.2s forwards;
+// Mixin animations multiples
+@mixin apply-ball-animations(
+    $fill-mode, $circle-size, $ball-size, $play-animation,
+    $spin-name, $spin-reverse, $spin-start, $spin-start-rotate, $spin-end, $spin-increment, $spin-duration, $spin-delay,
+    $opacity-name1, $opacity-duration1, $opacity-delay1, $opacity-timing1, $opacity-visible1,
+    $opacity-name2, $opacity-duration2, $opacity-delay2, $opacity-timing2, $opacity-visible2
+    ) {
+    @include spin-ball-anim($spin-name, $spin-reverse, $spin-start, $spin-start-rotate, $spin-end, $spin-increment, $circle-size, $ball-size);
+    @include visible-opacity($opacity-name1, $opacity-duration1, $opacity-delay1, $opacity-timing1, $fill-mode, $opacity-visible1, $play-animation);
+    @include visible-opacity($opacity-name2, $opacity-duration2, $opacity-delay2, $opacity-timing2, $fill-mode, $opacity-visible2, $play-animation);
+    
+    & {animation: #{$spin-name} $spin-duration $spin-delay $fill-mode,
+                #{$opacity-name1} $opacity-duration1 $opacity-delay1 $opacity-timing1 $fill-mode,
+                #{$opacity-name2} $opacity-duration2 $opacity-delay2 $opacity-timing2 $fill-mode;
+}
     }
-}   
+
+
+@mixin hide-loader(
+    $fill-mode, $visible, $play-animation,
+    $opacity-name, $opacity-duration, $opacity-delay, $opacity-timing,
+    $scale-name, $scale-duration, $scale-delay, $scale-timing, $scale-type
+) {
+    @include visible-opacity($opacity-name, $opacity-duration, $opacity-delay, $opacity-timing, $fill-mode, $visible, $play-animation);
+    @include visible-scale($scale-name, $scale-duration, $scale-delay, $scale-timing, $fill-mode, $visible, $scale-type, $play-animation);
+
+    & {animation: #{$opacity-name} $opacity-duration $opacity-delay $opacity-timing $fill-mode,
+                    #{$scale-name} $scale-duration $scale-delay $scale-timing $fill-mode;
+                    }
 }
