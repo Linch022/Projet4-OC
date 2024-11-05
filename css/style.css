@@ -771,22 +771,22 @@ body {
   top: 30%;
   left: 40%;
   opacity: 1;
-  transition: opacity 0.3s;
   transform: translate(-50%, -50%);
 }
 
 .liked {
-  font-size: 22px;
+  cursor: pointer;
+  font-size: 20px;
   position: absolute;
   top: 30%;
   left: 40%;
   opacity: 1;
-  transition: transform 0.3s;
   transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0;
   background: linear-gradient(180deg, #FF79DA, #9356DC);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
 }
 
 @keyframes liked {
@@ -796,15 +796,6 @@ body {
 }
 .checkbox-like:checked ~ .liked {
   animation: liked 0.3s 0s ease-in-out forwards;
-}
-
-@keyframes unlike {
-  to {
-    opacity: 0;
-  }
-}
-.checkbox-like:not(:checked) ~ .liked {
-  animation: unlike 0.3s 0s ease-in-out forwards;
 }
 
 /*# sourceMappingURL=style.css.map */

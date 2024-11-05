@@ -29,6 +29,17 @@
     }
 }
 
+// Mixin pour le like
+@mixin like-style {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+} 
+
 //Mixin pour le style de la balle
 @mixin loader-ball-style($reverse, $circle-size, $ball-size) {
     position: absolute;

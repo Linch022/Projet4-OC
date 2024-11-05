@@ -1,38 +1,25 @@
     .like-button {
         position: relative;
     }
-    
+
     .unlike {
-        cursor: pointer;
-        font-size: 20px;
-        position: absolute;
-        top: 30%;
-        left: 40%;
-        opacity: 1;
-        transition: opacity 0.3s;
-        transform: translate(-50%, -50%);
+        @include like-style;
     }
 
 
     .liked {
-        font-size: 22px;
-        position: absolute;
-        top: 30%;
-        left: 40%;
-        opacity: 1;
-        transition: transform 0.3s;
-        transform: translate(-50%, -50%);
+        @include like-style;
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0;
         background: linear-gradient(180deg, #FF79DA, #9356DC);
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        display: inline-block;
-
     }
 
     .checkbox-like:checked ~ .liked {
         @include visible-opacity(liked, 0.3s, 0s, ease-in-out, forwards, false, true)
     }
 
-    .checkbox-like:not(:checked) ~ .liked {
-        @include visible-opacity(unlike, 0.3s, 0s, ease-in-out, forwards, true, true)
-    }
+    // .checkbox-like:not(:checked) ~ .liked {
+    //     @include visible-opacity(unliked, 1.3s, 0s, ease-in-out, reverse, true, true)
+    // }
