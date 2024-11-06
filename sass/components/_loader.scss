@@ -34,22 +34,16 @@
         }
 
         &::before {
-            @include loader-ball-style(false,  $small-circle, $small-ball);
-
-            @include device(tablet) {
-                @include loader-ball-style(false, $large-circle, $large-ball);
-            }
+            @include loader-ball-style(false);
         }
 
         &::after {
-            transform: translateX(calc($small-circle / 2 - $small-ball - 5px)) rotate(360deg);
-            @include loader-ball-style(true, $small-circle, $small-ball);
-
+            @include loader-ball-style(true);
+            & {
+                transform: translateX(calc($small-circle / 2 - $small-ball - 5px)) rotate(360deg);
+            }
             @include device(tablet) {
-                @include loader-ball-style(true, $large-circle, $large-ball);
-                & {
                     transform: translateX(calc($large-circle / 2 - $large-ball - 5px)) rotate(360deg);
-                }
             }
         }
     }

@@ -41,48 +41,38 @@
 } 
 
 //Mixin pour le style de la balle
-@mixin loader-ball-style($reverse) {
+@mixin loader-ball-style($reverse, $circle-size, $ball-size) {
     position: absolute;
     content: "";
     top: 50%;
     left: 50%;
-    transform: translateX(calc($small-circle / 2 - $small-ball - 5px)) rotate(170deg);
-    transform-origin: -(calc($small-circle / 2 - $small-ball - 5px)) 0px;
+    transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate(170deg);
+    transform-origin: -(calc($circle-size / 2 - $ball-size - 5px)) 0px;
     opacity: 0;
     background: $purple-gradient;
-    width: $small-ball;
-    height: $small-ball;
+    width: $ball-size;
+    height: $ball-size;
     border-radius: 50%;
 
     @include device(tablet) {
-        width: $large-ball;
-        height: $large-ball;
-        transform: translateX(calc($large-circle / 2 - $large-ball - 5px)) rotate(170deg);
-        transform-origin: -(calc($large-circle / 2 - $large-ball - 5px)) 0px;
+        
     }
 
-    @if $reverse {
-
-        @include spin-ball-anim(pouet-reverse, $reverse)
+    @if $reverse{
+        @include apply-ball-animations(
+            forwards, $circle-size, $ball-size, false,
+            spin-reverse, true, 360deg, 220deg, 85deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
+            visible-ball, 0.3s, 2s, ease-in-out, false,
+            hide-ball, 0.3s, 8s, ease-in-out, true
+            ) ;
     } @else  {
-        @include spin-ball-anim(pouet, $reverse)
+        @include apply-ball-animations(
+            forwards, $circle-size, $ball-size, false,
+            spin, false, 170deg, 310deg, 445deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
+            visible-ball, 0.3s, 2s, ease-in-out, false,
+            hide-ball, 0.3s, 8s, ease-in-out, true
+            ) ;
     }
-
-    // @if $reverse{
-    //     @include apply-ball-animations(
-    //         forwards, $circle-size, $ball-size, false,
-    //         spin-reverse, true, 360deg, 220deg, 85deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
-    //         visible-ball, 0.3s, 2s, ease-in-out, false,
-    //         hide-ball, 0.3s, 8s, ease-in-out, true
-    //         ) ;
-    // } @else  {
-    //     @include apply-ball-animations(
-    //         forwards, $circle-size, $ball-size, false,
-    //         spin, false, 170deg, 310deg, 445deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
-    //         visible-ball, 0.3s, 2s, ease-in-out, false,
-    //         hide-ball, 0.3s, 8s, ease-in-out, true
-    //         ) ;
-    // }
 
 }
 
@@ -138,21 +128,15 @@
 }
 
 //Animation pour les balles
-@mixin spin-ball-anim($name, $reverse) {
+@mixin spin-ball-anim($name, $reverse, $start, $start-rotate, $end, $increment, $circle-size, $ball-size) {
 $rotation: 0deg;
-$increment: 35deg;
-$start: if($reverse, 360deg, 170deg);
-$start-rotate: if($reverse, 220deg, 310deg);
-$end: if($reverse, 85deg, 445deg);
 
 @keyframes #{$name} {
     0% {
-        transform: translate(calc($small-circle / 2 - $small-ball - 5px)) rotate($start);
-    }
-    5% {
-        transform: translate(calc($small-circle / 2 - $small-ball - 5px)) rotate($start);
-        opacity: 1;
-
+        transform: translate(calc($circle-size / 2 - $ball-size - 5px)) rotate($start);
+        @include device(tablet) {
+            transform: translate(calc($circle-size / 2 - $ball-size - 5px)) rotate($start);
+        }
     }
     
     @for $i from 0 through 3 {
@@ -165,60 +149,38 @@ $end: if($reverse, 85deg, 445deg);
             
         }
         #{$percentage + 0%} {
-            transform: translateX(calc($small-circle / 2 - $small-ball - 5px)) rotate($rotation);
+            transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($rotation);
         }
         #{$percentage + 10%} {
-            transform: translateX(calc($small-circle / 2 - $small-ball - 5px)) rotate($rotation);
+            transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($rotation);
         }
-    }
-    95% {
-        opacity: 1;
     }
     100% {
-        transform: translateX(calc($small-circle / 2 - $small-ball - 5px)) rotate($end);
-        opacity: 0;
+        transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($end);
+        @include device(tablet) {
+            transform: translateX(calc($circle-size / 2 - $ball-size - 5px)) rotate($end);
+        }
     }
+}
 }
 
-@include device(tablet) {
+
+// Mixin animations multiples
+@mixin apply-ball-animations(
+    $fill-mode, $circle-size, $ball-size, $play-animation,
+    $spin-name, $spin-reverse, $spin-start, $spin-start-rotate, $spin-end, $spin-increment, $spin-duration, $spin-delay,
+    $opacity-name1, $opacity-duration1, $opacity-delay1, $opacity-timing1, $opacity-visible1,
+    $opacity-name2, $opacity-duration2, $opacity-delay2, $opacity-timing2, $opacity-visible2
+    ) {
+    @include spin-ball-anim($spin-name, $spin-reverse, $spin-start, $spin-start-rotate, $spin-end, $spin-increment, $circle-size, $ball-size);
+    @include visible-opacity($opacity-name1, $opacity-duration1, $opacity-delay1, $opacity-timing1, $fill-mode, $opacity-visible1, $play-animation);
+    @include visible-opacity($opacity-name2, $opacity-duration2, $opacity-delay2, $opacity-timing2, $fill-mode, $opacity-visible2, $play-animation);
     
-    @keyframes #{$name} {
-        0% {
-            transform: translate(calc($large-circle / 2 - $large-ball - 5px)) rotate($start);
-        }
-        5% {
-            opacity: 1;
-        }
-        
-        @for $i from 0 through 3 {
-            $percentage: if($i == 0, 10, $i * 20 + 10);
-            @if $reverse {
-                $rotation : $start-rotate - ($i * $increment),
-                
-            } @else {
-                $rotation : $start-rotate + ($i * $increment);
-                
-            }
-            #{$percentage + 0%} {
-                transform: translateX(calc($large-circle / 2 - $large-ball - 5px)) rotate($rotation);
-            }
-            #{$percentage + 10%} {
-                transform: translateX(calc($large-circle / 2 - $large-ball - 5px)) rotate($rotation);
-            }
-        }
-        95% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateX(calc($large-circle / 2 - $large-ball - 5px)) rotate($end);
-            opacity: 0;
-        }
-    }
+    & {animation: #{$spin-name} $spin-duration $spin-delay $fill-mode,
+                #{$opacity-name1} $opacity-duration1 $opacity-delay1 $opacity-timing1 $fill-mode,
+                #{$opacity-name2} $opacity-duration2 $opacity-delay2 $opacity-timing2 $fill-mode;
 }
-    & {
-        animation: #{$name} 8s 1s ease-in-out forwards;
     }
-}
 
 
 @mixin hide-loader(
