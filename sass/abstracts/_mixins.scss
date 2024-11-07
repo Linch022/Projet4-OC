@@ -1,3 +1,5 @@
+//***************** MIXINS GENERALES ***********************//
+
 // Mixins pour les breakpoints
 @mixin device($breakpoint) {
     @if $breakpoint == tablet {
@@ -40,6 +42,33 @@
     transform: translate(-50%, -50%);
 } 
 
+
+//***************** MIXINS LOADER ***********************//
+
+      // Mixin Logique de remplissage du cercle 
+      @mixin circle-filling {
+
+        $start-translate: -150%;
+        $end-translate: -50%;
+        $steps: 4;
+        $increment: ($start-translate - $end-translate) / ($steps - 1);
+    
+        @keyframes circle-filling-anim {
+            @for $i from 1 through $steps {
+                $percentage: calc(($i - 1) * (100% / ($steps - 1)));
+                $translate: $start-translate - ($i - 1) * $increment;
+    
+                #{$percentage} {
+                    transform: translate(-50%, #{$translate});
+                }
+            }
+        }
+    
+        & {
+            animation: circle-filling-anim 6s 2.2s forwards;
+        }
+    }
+
 //Mixin pour le style de la balle
 @mixin loader-ball-style($reverse) {
     position: absolute;
@@ -63,77 +92,9 @@
 
     @if $reverse {
 
-        @include spin-ball-anim(pouet-reverse, $reverse)
+        @include spin-ball-anim(spin-reverse, $reverse)
     } @else  {
-        @include spin-ball-anim(pouet, $reverse)
-    }
-
-    // @if $reverse{
-    //     @include apply-ball-animations(
-    //         forwards, $circle-size, $ball-size, false,
-    //         spin-reverse, true, 360deg, 220deg, 85deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
-    //         visible-ball, 0.3s, 2s, ease-in-out, false,
-    //         hide-ball, 0.3s, 8s, ease-in-out, true
-    //         ) ;
-    // } @else  {
-    //     @include apply-ball-animations(
-    //         forwards, $circle-size, $ball-size, false,
-    //         spin, false, 170deg, 310deg, 445deg, 35deg,  $loader-spin-duration, $loader-spin-delay,
-    //         visible-ball, 0.3s, 2s, ease-in-out, false,
-    //         hide-ball, 0.3s, 8s, ease-in-out, true
-    //         ) ;
-    // }
-
-}
-
-// Animation d'apparition
-@mixin visible-opacity($name, $duration, $delay, $timing, $fill-mode, $visible, $play-animation) {
-
-    @if $visible {
-        @keyframes #{$name} {
-            to {
-                opacity: 0;
-            }
-        }
-    } @else {
-        @keyframes #{$name} {
-            to {
-                opacity: 1;
-            }
-        }
-    }
-    @if $play-animation {
-        & {
-            animation: $name $duration $delay $timing $fill-mode;
-        }
-    }
-}
-
-@mixin visible-scale($name, $duration, $delay, $timing, $fill-mode, $visible, $scale-type, $play-animation) {
-
-    @if $visible {
-        @keyframes #{$name} {
-            from {
-                transform: translate(-50%, -50%) #{$scale-type}(1);
-            } 
-            to {
-                transform: translate(-50%, -50%) #{$scale-type}(0);
-            }
-        }
-    } @else {
-        @keyframes #{$name} {
-            from {
-                transform: translate(-50%, -50%) #{$scale-type}(0);
-            } 
-            to {
-                transform: translate(-50%, -50%) #{$scale-type}(1);
-            }      
-        }
-    }
-    @if $play-animation {
-        & {
-            animation: $name $duration $delay $timing $fill-mode;
-        }
+        @include spin-ball-anim(spin, $reverse)
     }
 }
 
@@ -218,18 +179,4 @@ $end: if($reverse, 85deg, 445deg);
     & {
         animation: #{$name} 8s 1s ease-in-out forwards;
     }
-}
-
-
-@mixin hide-loader(
-    $fill-mode, $visible, $play-animation,
-    $opacity-name, $opacity-duration, $opacity-delay, $opacity-timing,
-    $scale-name, $scale-duration, $scale-delay, $scale-timing, $scale-type
-) {
-    @include visible-opacity($opacity-name, $opacity-duration, $opacity-delay, $opacity-timing, $fill-mode, $visible, $play-animation);
-    @include visible-scale($scale-name, $scale-duration, $scale-delay, $scale-timing, $fill-mode, $visible, $scale-type, $play-animation);
-
-    & {animation: #{$opacity-name} $opacity-duration $opacity-delay $opacity-timing $fill-mode,
-                    #{$scale-name} $scale-duration $scale-delay $scale-timing $fill-mode;
-                    }
 }

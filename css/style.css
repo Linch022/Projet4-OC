@@ -33,22 +33,7 @@ body {
   width: 100vw;
   height: 100vh;
   opacity: 1;
-}
-@keyframes set-opacity {
-  to {
-    opacity: 0;
-  }
-}
-@keyframes set-scale {
-  from {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  to {
-    transform: translate(-50%, -50%) scale(0);
-  }
-}
-.loader-container {
-  animation: set-opacity 0.5s 9s ease-out forwards, set-scale 0.3s 9.8s ease-in-out forwards;
+  transition: opacity 1s 5s;
 }
 .loader-container__logo {
   z-index: 2;
@@ -91,7 +76,7 @@ body {
     transform-origin: -165px 0px;
   }
 }
-@keyframes pouet {
+@keyframes spin {
   0% {
     transform: translate(100px) rotate(170deg);
   }
@@ -132,7 +117,7 @@ body {
   }
 }
 @media (min-width: 767px) {
-  @keyframes pouet {
+  @keyframes spin {
     0% {
       transform: translate(165px) rotate(170deg);
     }
@@ -173,7 +158,7 @@ body {
   }
 }
 .loader-container__logo::before {
-  animation: pouet 8s 1s ease-in-out forwards;
+  animation: spin 8s 1s ease-in-out forwards;
 }
 .loader-container__logo::after {
   position: absolute;
@@ -196,7 +181,7 @@ body {
     transform-origin: -165px 0px;
   }
 }
-@keyframes pouet-reverse {
+@keyframes spin-reverse {
   0% {
     transform: translate(100px) rotate(360deg);
   }
@@ -237,7 +222,7 @@ body {
   }
 }
 @media (min-width: 767px) {
-  @keyframes pouet-reverse {
+  @keyframes spin-reverse {
     0% {
       transform: translate(165px) rotate(360deg);
     }
@@ -278,7 +263,7 @@ body {
   }
 }
 .loader-container__logo::after {
-  animation: pouet-reverse 8s 1s ease-in-out forwards;
+  animation: spin-reverse 8s 1s ease-in-out forwards;
 }
 .loader-container__logo::after {
   transform: translateX(100px) rotate(360deg);
@@ -316,6 +301,22 @@ body {
   height: 280px;
   width: 280px;
   background: linear-gradient(180deg, #FF79DA -11.44%, #9356DC 123.93%);
+}
+@keyframes circle-filling-anim {
+  0% {
+    transform: translate(-50%, -150%);
+  }
+  33.3333333333% {
+    transform: translate(-50%, -116.6666666667%);
+  }
+  66.6666666667% {
+    transform: translate(-50%, -83.3333333333%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+.loader-container__circle::after {
   animation: circle-filling-anim 6s 2.2s forwards;
 }
 @media (min-width: 767px) {
@@ -344,17 +345,7 @@ body {
   background: #F6F6F6;
   box-shadow: inset -9px 0px 8px 0px #F6F6F6;
   transform-origin: right;
-}
-@keyframes visible-logo {
-  from {
-    transform: translate(-50%, -50%) scaleX(1);
-  }
-  to {
-    transform: translate(-50%, -50%) scaleX(0);
-  }
-}
-.logo-loader::after {
-  animation: visible-logo 1s 1s ease-in-out forwards;
+  transition: scale;
 }
 @media (min-width: 767px) {
   .logo-loader::after {
@@ -363,26 +354,6 @@ body {
   }
 }
 
-@keyframes circle-filling-anim {
-  15% {
-    transform: translate(-50%, -150%);
-  }
-  25%, 35% {
-    transform: translate(-50%, -130%);
-  }
-  45%, 55% {
-    transform: translate(-50%, -110%);
-  }
-  65%, 75% {
-    transform: translate(-50%, -80%);
-  }
-  85%, 95% {
-    transform: translate(-50%, -65%);
-  }
-  100% {
-    transform: translate(-50%, -50%);
-  }
-}
 .headline {
   margin: 40px 0;
 }
@@ -715,15 +686,6 @@ body {
   background: linear-gradient(180deg, #FF79DA, #9356DC);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-@keyframes liked {
-  to {
-    opacity: 1;
-  }
-}
-.checkbox-like:checked ~ .liked {
-  animation: liked 0.3s 0s ease-in-out forwards;
 }
 
 /*# sourceMappingURL=style.css.map */

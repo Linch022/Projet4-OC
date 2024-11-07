@@ -17,9 +17,5 @@
     }
 
     .checkbox-like:checked ~ .liked {
-        @include visible-opacity(liked, 0.3s, 0s, ease-in-out, forwards, false, true)
+        // @include visible-opacity(liked, 0.3s, 0s, ease-in-out, forwards, false, true)
     }
-
-    // .checkbox-like:not(:checked) ~ .liked {
-    //     @include visible-opacity(unliked, 1.3s, 0s, ease-in-out, reverse, true, true)
-    // }

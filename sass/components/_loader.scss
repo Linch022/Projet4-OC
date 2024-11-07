@@ -8,11 +8,7 @@
     width: 100vw;
     height: 100vh;
     opacity: 1;
-    @include hide-loader(
-        forwards, true, false,
-        set-opacity, 0.5s, 9s, ease-out,
-        set-scale, 0.3s, 9.8s, ease-in-out, scale
-    );
+    transition: opacity 1s 5s;
     
     &__logo {
         z-index: 2;
@@ -76,7 +72,7 @@
             height: calc($small-circle + 30px);
             width: calc($small-circle + 30px);
             background: $purple-gradient;
-            animation: circle-filling-anim $loader-spin-duration $loader-spin-delay forwards;
+            @include circle-filling();
 
             @include device(tablet) {
                 height: calc($large-circle + 45px);
@@ -105,7 +101,7 @@
         background: $light-grey;
         box-shadow: inset -9px 0px 8px 0px #F6F6F6;
         transform-origin: right;
-        @include visible-scale(visible-logo, 1s, 1s, ease-in-out, forwards, true, scaleX, true);
+        transition: scale;
         @include device(tablet) {
             height: 60px;
             width: calc($large-circle - 80px);
@@ -113,23 +109,3 @@
     }
 }
 
-  @keyframes circle-filling-anim {
-    15% {
-        transform: translate(-50%, -150%);
-    }
-    25%, 35% {
-        transform: translate(-50%, -130%);
-    }
-    45%, 55% {
-        transform: translate(-50%, -110%);
-    }
-    65%, 75% {
-        transform: translate(-50%, -80%);
-    }
-    85%, 95% {
-        transform: translate(-50%, -65%);
-    }
-    100% {
-        transform: translate(-50%, -50%);
-    }
-  }
