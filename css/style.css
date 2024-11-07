@@ -33,7 +33,13 @@ body {
   width: 100vw;
   height: 100vh;
   opacity: 1;
-  transition: opacity 1s 5s;
+  animation: hide-loader 1s 6s forwards;
+}
+@keyframes hide-loader {
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 .loader-container__logo {
   z-index: 2;
@@ -326,6 +332,11 @@ body {
   }
 }
 
+@keyframes show-logo {
+  to {
+    transform: translate(-50%, -50%) scaleX(0);
+  }
+}
 .logo-loader svg {
   width: 170px;
 }
@@ -339,13 +350,13 @@ body {
   content: "";
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scaleX(1);
   height: 40px;
   width: 170px;
   background: #F6F6F6;
   box-shadow: inset -9px 0px 8px 0px #F6F6F6;
   transform-origin: right;
-  transition: scale;
+  animation: show-logo 0.4s 0.3s forwards;
 }
 @media (min-width: 767px) {
   .logo-loader::after {
@@ -659,6 +670,16 @@ body {
   font-size: 0.875rem;
 }
 
+@keyframes liked {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes unliked {
+  to {
+    opacity: 0;
+  }
+}
 .like-button {
   position: relative;
 }
@@ -681,11 +702,19 @@ body {
   left: 40%;
   opacity: 1;
   transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%) scale(1.1);
-  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: bottom;
   background: linear-gradient(180deg, #FF79DA, #9356DC);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.checkbox-like:checked ~ .liked {
+  animation: liked 0.5s forwards;
+}
+
+.checkbox-like:checked ~ .unlike {
+  animation: unliked 0.7s forwards;
 }
 
 /*# sourceMappingURL=style.css.map */

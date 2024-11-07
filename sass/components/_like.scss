@@ -1,4 +1,16 @@
-    .like-button {
+  @keyframes liked {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes unliked{
+    to {
+        opacity: 0;
+    }
+  }
+  
+  .like-button {
         position: relative;
     }
 
@@ -6,16 +18,19 @@
         @include like-style;
     }
 
-
     .liked {
         @include like-style;
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        transform-origin: bottom;
         background: linear-gradient(180deg, #FF79DA, #9356DC);
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .checkbox-like:checked ~ .liked {
-        // @include visible-opacity(liked, 0.3s, 0s, ease-in-out, forwards, false, true)
+    animation: liked 0.5s forwards;
+    }
+
+    .checkbox-like:checked ~ .unlike {
+    animation: unliked 0.7s forwards;
     }
