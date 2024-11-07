@@ -3,15 +3,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    
+    &__back-button {
+    position: absolute;
+    left: $small-spacing;
+    font-size: $large-font;
+    }
     
     &__title {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 63px;
-        font-family: $font-title;
-        font-style: italic;
-        font-size: 30px;
         width: 100%;
         box-shadow: 0px 2px 4px 0px #00000026;
         z-index: 2;
