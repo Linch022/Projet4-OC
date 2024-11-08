@@ -2,9 +2,8 @@ body {
     font-family: $font-text;
     color: $text-color;
     background-color: $light-grey;
-
 }
 
-.checkbox-like {
-    display: none;
+.button {
+    @include button-style
 }

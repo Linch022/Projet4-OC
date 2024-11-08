@@ -3,13 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    
-    &__back-button {
-    position: absolute;
-    left: $small-spacing;
-    font-size: $large-font;
-    }
     
     &__title {
         position: relative;
@@ -55,4 +48,27 @@
                 font-weight: 500;
             }
         }
+
+        // Relatif aux pages restaurants
+
+            
+    &__back-button {
+        z-index: 3;
+        position: absolute;
+        top: calc(63px / 2);
+        left: $x-small-spacing;
+        font-size: $large-font;
+        transform: translate(-50%, -50%);
+        }
+
+    &__picture {
+        z-index: 2;
+        width: 100vw;
+        max-height: 275px;
+        object-fit: cover;
+
+        @include device(tablet) {
+            max-height: 383px;
+        }
+    }
 }

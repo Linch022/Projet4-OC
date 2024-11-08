@@ -1,0 +1,104 @@
+.restaurant-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+    margin-top: -50px;
+    background: $light-grey;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    padding: $medium-spacing $x-smaller-spacing;
+    padding-bottom: $large-spacing;
+    gap: $large-spacing;
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: $font-title;
+        font-size: $large-font;
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    &--button {
+        margin: 0 auto;
+        width: 186px;
+    }
+}
+
+.menus {
+    display: flex;
+    flex-direction: column;
+    gap: $large-spacing;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: $smaller-spacing;
+    }
+
+    &__title {
+        position: relative;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: $base-fontsize;
+        margin-bottom: $smaller-spacing;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            bottom: -$smaller-spacing;
+            height: 3px;
+            width: 40px;
+            background: $third-color;
+        }
+    }
+
+    &__items-container {
+        display: flex;
+        flex-direction: column;
+        gap: $x-smaller-spacing;
+    }
+}
+
+.menu-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    background: $white;
+    border-radius: 16px;
+    padding: $small-spacing;
+    justify-content: space-between;
+    box-shadow: 0px 4px 15px 0px #0000001A;
+    
+    &__text {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        gap: 5px;
+    }
+
+    &__title, &__description {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: $medium-font;
+    }
+
+    &__description {
+        font-size: $base-fontsize;
+        font-weight: 300;
+    }
+
+    &__price {
+        font-weight: 700;
+    }
+
+    &__checked {
+        position: absolute;
+    }
+}

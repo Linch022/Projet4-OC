@@ -17,13 +17,16 @@
             max-width: 1024px;
         }
 
+        &--button {
+            width: 218px;
+        }
     }
     
     &__content-title {
         margin-bottom: $small-spacing;
 
         @include device(laptop) {
-            font-size: $x-large-font;
+            font-size: $xx-large-font;
         }
     }
 
@@ -33,7 +36,6 @@
     }
 
     &__content-button {
-        @include button-style;
         width: 218px;
     }
     }

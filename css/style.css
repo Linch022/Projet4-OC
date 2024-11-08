@@ -13,14 +13,33 @@ ul, ol {
   list-style: none;
 }
 
+input[type=checkbox] {
+  display: none;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   color: #000000;
   background-color: #F6F6F6;
 }
 
-.checkbox-like {
-  display: none;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.3), 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  background: linear-gradient(180deg, #FF79DA -11.44%, #9356DC 123.93%);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease-in-out;
+}
+.button:hover {
+  box-shadow: inset 0px 4px 12px 4px rgba(255, 255, 255, 0.3), 0px 4px 10px 2px rgba(0, 0, 0, 0.2509803922);
 }
 
 .loader-container {
@@ -387,6 +406,9 @@ body {
     max-width: 1024px;
   }
 }
+.headline__content--button {
+  width: 218px;
+}
 .headline__content-title {
   margin-bottom: 16px;
 }
@@ -400,23 +422,7 @@ body {
   margin-bottom: 32px;
 }
 .headline__content-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  border: none;
-  border-radius: 25px;
-  box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.3), 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
-  background: linear-gradient(180deg, #FF79DA -11.44%, #9356DC 123.93%);
-  color: #FFFFFF;
-  cursor: pointer;
-  transition: box-shadow 0.5s ease-in-out;
   width: 218px;
-}
-.headline__content-button:hover {
-  box-shadow: inset 0px 4px 12px 4px rgba(255, 255, 255, 0.3), 0px 4px 10px 2px rgba(0, 0, 0, 0.2509803922);
 }
 
 .steps-section {
@@ -575,16 +581,105 @@ body {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1490196078);
 }
 
+.restaurant-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  margin-top: -50px;
+  background: #F6F6F6;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding: 32px 12px;
+  padding-bottom: 40px;
+  gap: 40px;
+}
+.restaurant-menu__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Shrikhand", sans-serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+}
+.restaurant-menu--button {
+  margin: 0 auto;
+  width: 186px;
+}
+
+.menus {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.menus__container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.menus__title {
+  position: relative;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.menus__title::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 40px;
+  background: #99E2D0;
+}
+.menus__items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 16px;
+  justify-content: space-between;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+}
+.menu-item__text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 5px;
+}
+.menu-item__title, .menu-item__description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.125rem;
+}
+.menu-item__description {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.menu-item__price {
+  font-weight: 700;
+}
+.menu-item__checked {
+  position: absolute;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.header__back-button {
-  position: absolute;
-  left: 16px;
-  font-size: 1.25rem;
 }
 .header__title {
   position: relative;
@@ -624,6 +719,25 @@ body {
 }
 .header__form-input::placeholder {
   font-weight: 500;
+}
+.header__back-button {
+  z-index: 3;
+  position: absolute;
+  top: 31.5px;
+  left: 24px;
+  font-size: 1.25rem;
+  transform: translate(-50%, -50%);
+}
+.header__picture {
+  z-index: 2;
+  width: 100vw;
+  max-height: 275px;
+  object-fit: cover;
+}
+@media (min-width: 767px) {
+  .header__picture {
+    max-height: 383px;
+  }
 }
 
 .footer {
@@ -686,6 +800,9 @@ body {
 .like-button {
   position: relative;
 }
+.like-button--restaurant {
+  padding-right: 40px;
+}
 
 .unlike {
   cursor: pointer;
@@ -693,7 +810,6 @@ body {
   position: absolute;
   top: 30%;
   left: 40%;
-  opacity: 1;
   transform: translate(-50%, -50%);
 }
 
@@ -703,7 +819,6 @@ body {
   position: absolute;
   top: 30%;
   left: 40%;
-  opacity: 1;
   transform: translate(-50%, -50%);
   transform: translate(-50%, -50%) scale(0);
   transform-origin: bottom;

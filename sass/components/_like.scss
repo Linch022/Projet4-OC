@@ -12,6 +12,10 @@
   
   .like-button {
         position: relative;
+
+        &--restaurant {
+          padding-right: $large-spacing;
+        }
     }
 
     .unlike {
