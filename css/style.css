@@ -53,7 +53,7 @@ body {
   width: 100vw;
   height: 100vh;
   opacity: 1;
-  animation: hide-loader 1s 6s forwards;
+  animation: hide-loader 1s 3s forwards;
 }
 @keyframes hide-loader {
   to {
@@ -110,29 +110,23 @@ body {
     transform: translate(100px) rotate(170deg);
     opacity: 1;
   }
-  10% {
-    transform: translateX(100px) rotate(310deg);
-  }
   20% {
     transform: translateX(100px) rotate(310deg);
   }
   30% {
+    transform: translateX(100px) rotate(310deg);
+  }
+  45% {
     transform: translateX(100px) rotate(345deg);
   }
-  40% {
+  55% {
     transform: translateX(100px) rotate(345deg);
-  }
-  50% {
-    transform: translateX(100px) rotate(380deg);
-  }
-  60% {
-    transform: translateX(100px) rotate(380deg);
   }
   70% {
-    transform: translateX(100px) rotate(415deg);
+    transform: translateX(100px) rotate(380deg);
   }
   80% {
-    transform: translateX(100px) rotate(415deg);
+    transform: translateX(100px) rotate(380deg);
   }
   95% {
     opacity: 1;
@@ -184,7 +178,7 @@ body {
   }
 }
 .loader-container__logo::before {
-  animation: spin 8s 1s ease-in-out forwards;
+  animation: spin 2.5s 0.2s ease-in-out forwards;
 }
 .loader-container__logo::after {
   position: absolute;
@@ -215,29 +209,23 @@ body {
     transform: translate(100px) rotate(360deg);
     opacity: 1;
   }
-  10% {
-    transform: translateX(100px) rotate(220deg);
-  }
   20% {
     transform: translateX(100px) rotate(220deg);
   }
   30% {
+    transform: translateX(100px) rotate(220deg);
+  }
+  45% {
     transform: translateX(100px) rotate(185deg);
   }
-  40% {
+  55% {
     transform: translateX(100px) rotate(185deg);
-  }
-  50% {
-    transform: translateX(100px) rotate(150deg);
-  }
-  60% {
-    transform: translateX(100px) rotate(150deg);
   }
   70% {
-    transform: translateX(100px) rotate(115deg);
+    transform: translateX(100px) rotate(150deg);
   }
   80% {
-    transform: translateX(100px) rotate(115deg);
+    transform: translateX(100px) rotate(150deg);
   }
   95% {
     opacity: 1;
@@ -289,7 +277,7 @@ body {
   }
 }
 .loader-container__logo::after {
-  animation: spin-reverse 8s 1s ease-in-out forwards;
+  animation: spin-reverse 2.5s 0.2s ease-in-out forwards;
 }
 .loader-container__logo::after {
   transform: translateX(100px) rotate(360deg);
@@ -343,7 +331,7 @@ body {
   }
 }
 .loader-container__circle::after {
-  animation: circle-filling-anim 6s 2.2s forwards;
+  animation: circle-filling-anim 2.4s 0.6s ease-in-out forwards;
 }
 @media (min-width: 768px) {
   .loader-container__circle::after {
@@ -611,6 +599,7 @@ body {
   align-items: center;
   font-family: "Shrikhand", sans-serif;
   font-size: 1.25rem;
+  padding-left: 8px;
 }
 @media (min-width: 768px) {
   .restaurant-menu__title {
@@ -626,8 +615,6 @@ body {
 .menus {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 40px;
 }
 @media (min-width: 768px) {
@@ -640,7 +627,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;
 }
 .menus__title {
   position: relative;
@@ -662,8 +648,6 @@ body {
 .menus__list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  width: 100%;
   gap: 12px;
 }
 .menus__list li:nth-child(0) {
@@ -684,18 +668,13 @@ body {
 .menus__list li:nth-child(5) {
   --index: 5;
 }
-.menus__list li {
+.menus__card {
+  overflow: hidden;
+  border-radius: 19px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
   opacity: 0;
   animation: slide 0.5s ease forwards;
   animation-delay: calc(var(--index) * 0.4s);
-}
-.menus__card {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  width: 100%;
-  border-radius: 19px;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
 }
 .menus__card:hover .menus__card--checked {
   transform: translateX(0px);
@@ -724,10 +703,8 @@ body {
 .menu-item {
   position: relative;
   display: flex;
-  flex-direction: row;
   align-items: flex-end;
   background: #ffffff;
-  width: 100%;
   border-radius: 16px;
   padding: 16px;
   justify-content: space-between;
