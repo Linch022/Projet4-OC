@@ -1,9 +1,9 @@
 body {
-    font-family: $font-text;
-    color: $text-color;
-    background-color: $light-grey;
+  font-family: $font-text;
+  color: $text-color;
+  background-color: $light-grey;
 }
 
 .button {
-    @include button-style
+  @include button-style;
 }
