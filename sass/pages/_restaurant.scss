@@ -1,3 +1,7 @@
+.restaurant-container {
+    background: $white;
+}
+
 .restaurant-menu {
     position: relative;
     display: flex;
@@ -11,14 +15,23 @@
     padding-bottom: $large-spacing;
     gap: $large-spacing;
 
+    @include device(tablet) {
+        max-width: 80vw;
+        margin: -50px auto 0 auto;
+    }
+
     &__title {
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-family: $font-title;
         font-size: $large-font;
-        font-style: italic;
         font-weight: 400;
+
+        @include device(tablet) {
+            gap: 30px;
+            margin: 0 auto;
+        }
     }
 
     &--button {
@@ -30,12 +43,20 @@
 .menus {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: $large-spacing;
+
+    @include device(tablet) {
+        width: 50vw;
+        margin: 0 auto;
+    }
 
     &__container {
         display: flex;
         flex-direction: column;
         gap: $smaller-spacing;
+        width: 100%;
     }
 
     &__title {

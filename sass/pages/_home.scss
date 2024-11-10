@@ -126,14 +126,6 @@
             max-width: 80vw;
             margin: 0 auto;
         }
-
-        @include device(laptop) {
-            max-width: 80vw;
-        }
-
-        @include device(xl-laptop) {
-            max-width: 80vw;
-        }
     }
 
     .cards-container {
