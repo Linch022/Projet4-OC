@@ -28,7 +28,6 @@
         </div>
         <div class="loader-container__circle"></div>
         </div>
-    </div>
     <div>
         <header class="header">
                 <h1 class="header__title"><img src="./assets/images/logo/ohmyfood@2x.svg" alt="Ohmyfood, réserver vos menus préférés"></h1>
@@ -70,23 +69,26 @@
                 <section class="restaurants">
                 <h2 class="section__title">Restaurants</h2>
                 <div class="cards-container">
-                    <a href="./restaurants/restaurant-one.html" class="card">
-                        <article >
-                            <span class="new-label" aria-label="Nouveau restaurant">Nouveau</span>
-                            <img src="./assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="" class="card__image">
-                            <div class="card__content">
-                                <div class="card__text">
-                                    <h3 class="card__text-title">La palette du goût</h3>
-                                    <p class="card__text-description">Ménilmontant</p>
+                    <div class="card">
+                        <a href="./restaurants/restaurant-one.html">
+                            <article>
+                                <span class="new-label" aria-label="Nouveau restaurant">Nouveau</span>
+                                <img src="./assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="" class="card__image">
+                                <div class="card__content">
+                                    <div class="card__text">
+                                        <h3 class="card__text-title">La palette du goût</h3>
+                                        <p class="card__text-description">Ménilmontant</p>
+                                    </div>
                                 </div>
-                                <label class="like-button">
-                                    <input type="checkbox" name="like-1" id="like-1" value="like-1" class="checkbox-like">
-                                    <i class="fa-regular fa-heart unlike"></i>
-                                    <i class="fa-solid fa-heart liked"></i>
-                                </label>
-                            </div>
-                        </article>
-                    </a>
+                            </article>
+                        </a>
+                        <label class="like-button like-button--card">
+                            <input type="checkbox" name="like-1" id="like-1" value="like-1" class="checkbox-like">
+                            <i class="fa-regular fa-heart unlike"></i>
+                            <i class="fa-solid fa-heart liked"></i>
+                        </label>
+                    </div>
+                    <div class="card">
                     <a href="./restaurants/restaurant-two.html" class="card">
                         <article >
                             <span class="new-label" aria-label="Nouveau restaurant">Nouveau</span>
@@ -96,14 +98,16 @@
                                     <h3 class="card__text-title">La note enchantée</h3>
                                     <p class="card__text-description">Charonne</p>
                                 </div>
-                                <label class="like-button">
-                                    <input type="checkbox" name="like-2" id="like-2" value="like-2" class="checkbox-like">
-                                    <i class="fa-regular fa-heart unlike"></i>
-                                    <i class="fa-solid fa-heart liked"></i>
-                                </label>
                             </div>
                         </article>
                     </a>
+                    <label class="like-button like-button--card">
+                        <input type="checkbox" name="like-2" id="like-2" value="like-2" class="checkbox-like">
+                        <i class="fa-regular fa-heart unlike"></i>
+                        <i class="fa-solid fa-heart liked"></i>
+                    </label>
+                </div>
+                    <div class="card">
                     <a href="./restaurants/restaurant-three.html" class="card">
                         <article>
                             <img src="./assets/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="" class="card__image">
@@ -112,14 +116,16 @@
                                     <h3 class="card__text-title">À la française</h3>
                                     <p class="card__text-description">Cité Rouge</p>
                                 </div>
-                                <label class="like-button">
-                                    <input type="checkbox" name="like-3" id="like-3" value="like-3" class="checkbox-like">
-                                    <i class="fa-regular fa-heart unlike"></i>
-                                    <i class="fa-solid fa-heart liked"></i>                         
-                                    </label>
                             </div>
                         </article>
                     </a>
+                    <label class="like-button like-button--card">
+                        <input type="checkbox" name="like-3" id="like-3" value="like-3" class="checkbox-like">
+                        <i class="fa-regular fa-heart unlike"></i>
+                        <i class="fa-solid fa-heart liked"></i>                         
+                        </label>
+                </div>
+                    <div class="card">
                     <a href="./restaurants/restaurant-four.html" class="card">
                         <article>
                             <img src="./assets/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="" class="card__image">
@@ -128,14 +134,15 @@
                                     <h3 class="card__text-title">Le délice des sens</h3>
                                     <p class="card__text-description">Folie-Méricourt</p>
                                 </div>
-                                <label class="like-button">
-                                    <input type="checkbox" name="like-4" id="like-4" value="like-4" class="checkbox-like">
-                                    <i class="fa-regular fa-heart unlike"></i>
-                                    <i class="fa-solid fa-heart liked"></i>
-                                </label>
                             </div>
                         </article>
                     </a>
+                    <label class="like-button like-button--card">
+                        <input type="checkbox" name="like-4" id="like-4" value="like-4" class="checkbox-like">
+                        <i class="fa-regular fa-heart unlike"></i>
+                        <i class="fa-solid fa-heart liked"></i>
+                    </label>
+                </div>
                 </div>
             </section>
         </main>

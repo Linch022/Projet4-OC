@@ -11,10 +11,15 @@
 }
 
 .like-button {
-  position: relative;
-
   &--restaurant {
+    position: relative;
     padding-right: $large-spacing;
+  }
+
+  &--card {
+    position: absolute;
+    right: $large-spacing;
+    bottom: $medium-spacing;
   }
 }
 

@@ -852,11 +852,14 @@ body {
     opacity: 0;
   }
 }
-.like-button {
-  position: relative;
-}
 .like-button--restaurant {
+  position: relative;
   padding-right: 40px;
+}
+.like-button--card {
+  position: absolute;
+  right: 40px;
+  bottom: 32px;
 }
 
 .unlike {
