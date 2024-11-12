@@ -424,11 +424,12 @@ body {
   padding: 56px 0;
   gap: 16px;
   margin: 0 auto;
+  width: 80vw;
   max-width: 380px;
 }
 @media (min-width: 768px) {
   .steps {
-    max-width: 80vw;
+    max-width: none;
   }
 }
 .steps__container {

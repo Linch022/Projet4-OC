@@ -50,10 +50,11 @@
   padding: $x-large-spacing 0;
   gap: $small-spacing;
   margin: 0 auto;
+  width: 80vw;
   max-width: 380px;
 
   @include device(tablet) {
-    max-width: 80vw;
+    max-width: none;
   }
 
   &__container {
