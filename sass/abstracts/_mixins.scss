@@ -56,12 +56,12 @@
   $start-translate: -150%;
   $end-translate: -50%;
   $steps: 4;
-  $increment: ($start-translate - $end-translate) / ($steps - 1);
+  $increment: calc(($start-translate - $end-translate) / ($steps - 1));
 
   @keyframes circle-filling-anim {
     @for $i from 1 through $steps {
       $percentage: calc(($i - 1) * (100% / ($steps - 1)));
-      $translate: $start-translate - ($i - 1) * $increment;
+      $translate: calc($start-translate - ($i - 1) * $increment);
 
       #{$percentage} {
         transform: translate(-50%, #{$translate});
@@ -160,7 +160,7 @@
       }
 
       @for $i from 0 through 3 {
-        $percentage: if($i == 0, 10, $i * 20 + 10);
+        $percentage: if($i == 0, 20, $i * 25 + 20);
         @if $reverse {
           $rotation: $start-rotate - ($i * $increment);
         } @else {

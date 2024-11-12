@@ -1,10 +1,11 @@
-.loader-container {
-  @keyframes hide-loader {
-    to {
-      opacity: 0;
-      transform: scale(0);
-    }
+@keyframes hide-loader {
+  to {
+    opacity: 0;
+    transform: scale(0);
   }
+}
+
+.loader-container {
   background: $light-grey;
   position: fixed;
   top: 50%;
