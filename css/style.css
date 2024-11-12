@@ -487,6 +487,7 @@ body {
 .restaurants {
   padding: 56px 0;
   margin: 0 auto;
+  width: 80vw;
   max-width: 380px;
 }
 .restaurants .section__title {
@@ -494,8 +495,7 @@ body {
 }
 @media (min-width: 768px) {
   .restaurants {
-    max-width: 80vw;
-    margin: 0 auto;
+    max-width: none;
   }
 }
 
