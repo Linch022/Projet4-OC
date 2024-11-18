@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>À la française</title>
+    <title>La palette du goût</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -19,7 +19,7 @@
   <body>
     <header class="header">
       <a href="../index.html" class="header__back-button">
-        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-left" aria-label="Bouton retour page d'accueil"></i>
       </a>
       <h1 class="header__title">
         <img
@@ -27,22 +27,22 @@
           alt="Ohmyfood, réserver vos menus préférés"
         />
       </h1>
-      <img
-        src="../assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
-        alt=""
-        class="header__picture"
-      />
     </header>
     <main class="restaurant-container">
+      <img
+      src="../assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
+      alt=""
+      class="restaurant-picture"
+    />
       <div class="restaurant-menu">
-        <div class="restaurant-menu__title">
-          <h2>À la française</h2>
+        <div class="restaurant-menu__title-container">
+          <h2 class="restaurant-menu__title">La palette du goût</h2>
           <label class="like-button like-button--restaurant">
             <input
               type="checkbox"
-              name="like"
-              id="like"
-              value="like"
+              name="like-la-palette-du-gout"
+              id="like-la-palette-du-gout"
+              value="like-la-palette-du-gout"
               class="checkbox-like"
             />
             <i class="fa-regular fa-heart unlike"></i>
@@ -56,8 +56,8 @@
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">Tartare de poulpe acidulé</h4>
-                    <p class="menu-item__description">Aux zestes d'orange</p>
+                    <h4 class="menu-item__title">Fricassée d'escargots</h4>
+                    <p class="menu-item__description">Au piment d'Espelette</p>
                   </div>
                   <span class="menu-item__price">25€</span>
                 </article>
@@ -68,9 +68,11 @@
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">Velouté de légumes d'antan</h4>
+                    <h4 class="menu-item__title">
+                      Foie gras de canard mi-cuit
+                    </h4>
                     <p class="menu-item__description">
-                      Carotte, panais, topinambour
+                      Et ses copeaux de truffe noire
                     </p>
                   </div>
                   <span class="menu-item__price">35€</span>
@@ -82,14 +84,14 @@
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">Soupe à l'oignon</h4>
-                    <p class="menu-item__description">Revisitée</p>
+                    <h4 class="menu-item__title">Œuf au plat</h4>
+                    <p class="menu-item__description">
+                      Assaisonné à la truffe sur lit de caviar
+                    </p>
                   </div>
                   <span class="menu-item__price">20€</span>
                 </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
               </li>
             </ul>
           </section>
@@ -99,46 +101,38 @@
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">Coquilles Saint-Jacques</h4>
+                    <h4 class="menu-item__title">Filet de bœuf aux herbes</h4>
                     <p class="menu-item__description">
-                      Accompagnées d'une purée de panais
+                      Accompagné de sa ribambelle de légumes
                     </p>
                   </div>
                   <span class="menu-item__price">40€</span>
                 </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
-              </li>
-              <li class="menus__card">
-                <article class="menu-item">
-                  <div class="menu-item__text">
-                    <h4 class="menu-item__title">Magret de canard</h4>
-                    <p class="menu-item__description">
-                      Et parmentier de pommes de terre
-                    </p>
-                  </div>
-                  <span class="menu-item__price">35€</span>
-                </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
               </li>
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
                     <h4 class="menu-item__title">
-                      Pigeonneau d'Ille-et-Vilaine
+                      Parmentier de queue de bœuf
                     </h4>
                     <p class="menu-item__description">
-                      Sur son lit de gnocchis aux légumes
+                      À la truffe noire sur sa purée de panais
                     </p>
+                  </div>
+                  <span class="menu-item__price">35€</span>
+                </article>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
+              </li>
+              <li class="menus__card">
+                <article class="menu-item">
+                  <div class="menu-item__text">
+                    <h4 class="menu-item__title">Filet de turbot</h4>
+                    <p class="menu-item__description">Aux agrumes</p>
                   </div>
                   <span class="menu-item__price">44€</span>
                 </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
               </li>
             </ul>
           </section>
@@ -148,42 +142,38 @@
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">
-                      Pétales de violettes glacés
-                    </h4>
-                    <p class="menu-item__description">Et purée de noisettes</p>
+                    <h4 class="menu-item__title">Paris-Brest</h4>
+                    <p class="menu-item__description">Revisité</p>
                   </div>
                   <span class="menu-item__price">18€</span>
                 </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
               </li>
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">Fondant au chocolat</h4>
-                    <p class="menu-item__description">Revisité</p>
+                    <h4 class="menu-item__title">
+                      Macaron au chocolat d'exception
+                    </h4>
+                    <p class="menu-item__description">
+                      Et glace à la vanille de Madagascar
+                    </p>
                   </div>
                   <span class="menu-item__price">22€</span>
                 </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
               </li>
               <li class="menus__card">
                 <article class="menu-item">
                   <div class="menu-item__text">
-                    <h4 class="menu-item__title">Millefeuille croustillant</h4>
+                    <h4 class="menu-item__title">Mousse au chocolat</h4>
                     <p class="menu-item__description">
-                      Myrtilles et pâte d'amande
+                      Au piment d'Espelette et à la truffe noire
                     </p>
                   </div>
                   <span class="menu-item__price">23€</span>
                 </article>
-                <div class="menus__card--checked">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
+                <div class="menus__card--checked"><i class="fa-solid fa-circle-check"></i></div>
               </li>
             </ul>
           </section>
